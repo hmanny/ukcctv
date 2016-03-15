@@ -27,7 +27,7 @@
     }
 }
 .banner {
-    background: url(/assets/images/banner-image.jpg);
+    background: url(/ukcctvsecurity-co-uk/_img/assets/images/banner-image.jpg);
     background-size: cover;
     height: 100vh;
     .container {
@@ -115,7 +115,7 @@
     }
 }
 .strip-vid {
-    background: url(/assets/images/bhbg.jpg);
+    background: url(/ukcctvsecurity-co-uk/_img/assets/images/bhbg.jpg);
     background-size: cover;
     @include tint($yellow, 0.8);
     .video {
@@ -148,7 +148,7 @@
             width: 100%;
             padding-bottom: 56.25%;
             transition: transform 0.5s ease-in-out;
-            background: url("/assets/images/banner-image.jpg");
+            background: url("/ukcctvsecurity-co-uk/_img/assets/images/banner-image.jpg");
             background-size: cover;
             position: relative;
             //            z-index: 8;
@@ -285,13 +285,13 @@
         transition: transform 0.3s ease-in-out;
     }
     .kits {
-        background-image: url(/assets/images/screens.jpg);
+        background-image: url(/ukcctvsecurity-co-uk/_img/assets/images/screens.jpg);
     }
     .installation {
-        background-image: url(/assets/images/install.jpg);
+        background-image: url(/ukcctvsecurity-co-uk/_img/assets/images/install.jpg);
     }
     .cameras {
-        background-image: url(/assets/images/highcamera.jpg);
+        background-image: url(/ukcctvsecurity-co-uk/_img/assets/images/highcamera.jpg);
     }
     [class^="tiles_"],
     [class*=" tiles_"] {
@@ -345,7 +345,7 @@
     }
 }
 .questions {
-    background: url(/assets/images/bhbg.jpg);
+    background: url(/ukcctvsecurity-co-uk/_img/assets/images/bhbg.jpg);
     background-size: cover;
     @include tint($yellow,
     0.8);
