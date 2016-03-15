@@ -1,0 +1,60 @@
+/* ---------------------------------------------- *\
+
+  Partial: typography
+
+  I set all typographic styles here. First we list our variables such as fonts (maybe we're using some @font-face) and
+  additionally and maps we might want to use. Then we specificy the typographic scales we want.
+
+\* ---------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: $DIN;
+    line-height: 1.1;
+    font-weight: 600;
+    margin-bottom: ms(0)/4;
+}
+.headingBlock {
+    text-align: center;
+}
+h1 {
+    font-size: ms(6);
+    @include respond-to(920) {
+        font-size: ms(9);
+    }
+}
+h2 {
+    font-size: ms(6);
+    @include respond-to(920) {
+        font-size: ms(8);
+    }
+}
+h3 {
+    font-size: ms(4);
+    @include respond-to(920) {
+        font-size: ms(7);
+    }
+    ;
+}
+h4 {}
+h5 {}
+h6 {}
+p {
+    margin-bottom: ms(2);
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+strong {
+    // change if using @fontface
+    font-weight: bold;
+}
+em {
+    // change if using @fontface
+    font-style: italic;
+}

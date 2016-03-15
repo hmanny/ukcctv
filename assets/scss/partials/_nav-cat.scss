@@ -1,0 +1,67 @@
+.categories {
+    display: none;
+    width: 100%;
+    height: 0;
+}
+
+@include respond-to(1025) {
+    .categories {
+        height: auto;
+        display: block;
+        div > ul {
+            > li {
+                display: inline-block;
+                position: relative;
+                padding: 3em 1.5em 3em 0;
+                @include respond-to(1200) {
+                    padding-right: 2.5em;
+                }
+                
+                @include respond-to(1350) {
+                    padding-right: 3em
+                }
+                text-transform: uppercase;
+                //            font-size: ms(-1);
+                //            font-family: $DINcondensed;
+                font-family: $DIN;
+                > a {
+                    &:hover {
+                        cursor: default;
+                    }
+                }
+                ul {
+                    display: none;
+                    background: $darkGrey;
+                    //                display: block;
+                    position: absolute;
+                    top: 100%;
+                    left: -1em;
+                    width: 200px;
+                    border-top: 1em solid transparent;
+                    background: none;
+                    li {
+                        text-transform: uppercase;
+                        padding: 0 0.5em;
+                        border: 1px solid $darkGrey;
+                        //                    border-top: none;
+                        transition: all 0.3s;
+                        background: $darkGrey;
+                        &:hover {
+                            background: $white;
+                            color: $black;
+                        }
+                        a {
+                            padding: 0.5em 0.25em;
+                            display: block;
+                        }
+                    }
+                }
+                &:hover {
+                    ul {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

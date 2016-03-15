@@ -1,0 +1,42 @@
+header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    color: $white;
+    z-index: 10;
+    .header_topStrip {
+        background: $black;
+    }
+    .header_bottomStrip {
+        background: $darkGrey;
+    }
+    .logo {
+        @include span(4 of 12 inside);
+        @include respond-to(768) {
+            @include span(3 of 12 inside);
+        }
+        @include respond-to(1025) {
+            @include span(2 of 12 inside);
+        }
+        padding-top: 0.25em;
+        position: relative;
+    }
+    .logo_inner {
+        width: 80%;
+        //        background: url(/assets/images/logo.png);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        padding: 0.5em 0;
+        @include respond-to(1025) {
+            position: absolute;
+            padding: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .categories {
+        @include span(9 of 12 inside);
+    }
+}

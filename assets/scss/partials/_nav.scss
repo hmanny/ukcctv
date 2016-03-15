@@ -1,0 +1,32 @@
+/* ---------------------------------------------- *\
+
+  Partial: nav
+
+  All navigation styles here. This is sort that we can try keep things seperated and easy to maintain. You can
+  include all global navigation styles here. 
+
+\* ---------------------------------------------- */
+
+nav {
+    ul {
+        text-align: right;
+        @include respond-to(768) {
+            text-align: left;
+        }
+        li {
+            display: inline-block;
+            font-family: $DIN;
+            font-size: ms(0);
+            padding-right: 0.88em;
+            @include respond-to(768) {
+                padding-right: 3em;
+            }
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        a {
+            padding: 0.5em 0;
+            display: block;
+        }
+    }
+}

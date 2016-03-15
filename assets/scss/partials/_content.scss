@@ -1,0 +1,362 @@
+.smallPaddings {
+    padding: 1.5em 0;
+    @include respond-to(920) {
+        padding: 3em 0;
+    }
+}
+.topLine,
+.bottomLine {
+    &-center,
+    &-left {
+        &:before {
+            margin: 0 auto 16px auto;
+        }
+        &:after {
+            margin: 16px auto 0 auto;
+        }
+    }
+    @include respond-to(920) {
+        &-left {
+            &:before {
+                margin: 0 0 16px 0;
+            }
+            &:after {
+                margin: 16px 0 0 0;
+            }
+        }
+    }
+}
+.banner {
+    background: url(/assets/images/banner-image.jpg);
+    background-size: cover;
+    height: 100vh;
+    .container {
+        position: relative;
+        height: 100%;
+    }
+}
+.banner_text {
+    //    display: none;
+    @include respond-to(920) {
+        @include span(7 of 12);
+        text-align: left;
+    }
+    @include respond-to(1200) {
+        @include span(5 of 12);
+    }
+    top: 0;
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    @include respond-to(640) {
+        left: 3em;
+        right: 3em;
+    }
+    text-align: center;
+    //    transform: translateY(-50%);
+    height: 100%;
+    //    bottom: 0;
+}
+.whiteBox {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background: rgba($white, 0.7);
+    padding: 2em;
+    @include respond-to(920) {
+        padding: 3em;
+    }
+    box-shadow: $shadow;
+    .btn {
+        margin-right: ms(1);
+    }
+}
+.bullets {
+    font-size: ms(2);
+    position: relative;
+    left: -0.5em;
+    line-height: 2.5em;
+    font-family: $DIN;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    @include respond-to(920) {
+        text-align: left;
+        padding-left: 2em;
+    }
+    li:before {
+        @include icon;
+        content: "\e260";
+        font-family: "icomoon";
+        padding: 1em;
+        color: $yellow;
+    }
+    @include respond-to(920) {
+        padding-top: 2em;
+    }
+}
+.strip-why {
+    text-align: center;
+    @include respond-to(920) {
+        text-align: left;
+    }
+    .container.paddings {
+        padding-top: 0;
+        padding-bottom: 0;
+        @include respond-to(920) {
+            padding: 3em 1em;
+        }
+    }
+    .third .topLine-left:before {
+        display: none;
+        @include respond-to(920) {
+            display: block;
+        }
+    }
+}
+.strip-vid {
+    background: url(/assets/images/bhbg.jpg);
+    background-size: cover;
+    @include tint($yellow, 0.8);
+    .video {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 800px;
+        position: relative;
+        border: 4px solid $white;
+        overflow: hidden;
+        a {
+            //            display: block;
+        }
+        @include tint($black, 0.3);
+        &:after {
+            z-index: 2;
+            transition: opacity .5s;
+        }
+        &:hover {
+            .video_inner {
+                transform: scale(1.2);
+                &:after {
+                    transform: scale(1.1) translateY(-50%);
+                }
+            }
+            &:after {
+                opacity: 0;
+            }
+        }
+        .video_inner {
+            width: 100%;
+            padding-bottom: 56.25%;
+            transition: transform 0.5s ease-in-out;
+            background: url("/assets/images/banner-image.jpg");
+            background-size: cover;
+            position: relative;
+            //            z-index: 8;
+            &:after {
+                @include icon;
+                text-shadow: $shadow;
+                content: "\e01c";
+                color: $white;
+                position: absolute;
+                left: 0;
+                right: 0;
+                font-size: ms(5);
+                @include respond-to(768) {
+                    font-size: ms(11);
+                }
+                display: block;
+                text-align: center;
+                top: 50%;
+                transform: translateY(-50%);
+                //                z-index: 9;
+                transition: transform 0.2s linear;
+            }
+        }
+    }
+}
+.featured {
+    background: #ebebeb;
+    padding: 0 1em;
+    @include respond-to(640) {
+        padding: 0 3em;
+    }
+    .product_tag {
+        @include container;
+        padding: 1em 0;
+    }
+    @mixin responsiveProducts {
+        text-align: center;
+        @include respond-to(640) {
+            text-align: left;
+        }
+        @include respond-to(640to920) {
+            @include span(1 of 2);
+            &:nth-of-type(2n) {
+                @include span(1 of 2 last);
+            }
+        }
+        @include respond-to(920to1025) {
+            @include span(2 of 6);
+            &:nth-of-type(3n) {
+                @include span(2 of 6 last);
+            }
+        }
+        @include respond-to(1025to1300) {
+            @include span(3 of 12);
+            &:nth-of-type(4n) {
+                @include span(3 of 12 last);
+            }
+        }
+        @include respond-to(1300) {
+            @include span(2 of 12);
+            &:nth-of-type(6n) {
+                @include span(2 of 12 last);
+            }
+        }
+    }
+    .product {
+        @include responsiveProducts;
+        display: block;
+        margin-bottom: 3em;
+        transition: background 0.2s;
+        box-shadow: $shadow;
+        background: $grey;
+        &:hover {
+            .product_img {
+                border: 5px solid $yellow;
+            }
+            background: $yellow;
+        }
+        &:active,
+        &:focus {
+            @include pressed;
+        }
+    }
+    .product_item {}
+    > .product_item {
+        @include responsiveProducts;
+        box-shadow: $shadow;
+        background: $grey;
+    }
+    .product_img {
+        padding: 2em;
+        background: $white;
+        transition: border 0.2s;
+        border: 5px solid transparent;
+    }
+    .product_info {
+        color: $white;
+        font-family: $DIN;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 0.5em;
+    }
+    .productId,
+    .productCat,
+    .productDesc,
+    .ecommerceSummaryReviewsItem,
+    .product_view_btn {
+        display: none;
+    }
+    .productPrice {
+        margin-top: 0.5em;
+        text-transform: none;
+    }
+    .productPriceVat {
+        text-transform: none;
+    }
+}
+.tiles {
+    @include container(100%);
+    font-size: ms(-1);
+    * {
+        font-family: $DINcondensed;
+        color: $white;
+    }
+    .kits,
+    .installation,
+    .cameras {
+        background-size: cover;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transition: transform 0.3s ease-in-out;
+    }
+    .kits {
+        background-image: url(/assets/images/screens.jpg);
+    }
+    .installation {
+        background-image: url(/assets/images/install.jpg);
+    }
+    .cameras {
+        background-image: url(/assets/images/highcamera.jpg);
+    }
+    [class^="tiles_"],
+    [class*=" tiles_"] {
+        //        padding-bottom: 50%;
+        position: relative;
+        background-size: cover;
+        background-position: 50% 10%;
+        padding-bottom: 40%;
+        overflow: hidden;
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: $black;
+            opacity: 0.4;
+            transition: opacity 0.2s;
+        }
+        &:hover:after {
+            opacity: 0.2;
+        }
+        &:hover {
+            .kits,
+            .installation,
+            .cameras {
+                transform: scale(1.1);
+            }
+        }
+        .text {
+            position: absolute;
+            z-index: 2;
+            left: 1em;
+            bottom: 0.5em;
+            right: 0;
+            .arrows {
+                color: $yellow;
+            }
+            //            top: 0;
+        }
+    }
+    @include respond-to(1025) {
+        .tiles_tallTile {
+            padding-bottom: 50%;
+        }
+        .tiles_longTile {
+            padding-bottom: 25%;
+        }
+    }
+}
+.questions {
+    background: url(/assets/images/bhbg.jpg);
+    background-size: cover;
+    @include tint($yellow,
+    0.8);
+    color: $white;
+    text-align: center;
+    h3 {
+        @include respond-to(920) {
+            display: inline-block;
+            margin: 0;
+            margin-right: 0.5em;
+        }
+        vertical-align: middle;
+    }
+}

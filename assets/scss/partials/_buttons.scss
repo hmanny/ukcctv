@@ -1,0 +1,45 @@
+/* ---------------------------------------------- *\
+
+  Partial: buttons
+
+  This is a work-in-progress. Please deploy your own method or use my exaple below. 
+
+\* ---------------------------------------------- */
+
+.btn {
+    font-size: ms(-2);
+    @include respond-to(640) {
+        font-size: ms(-1)
+    }
+    display: inline-block;
+    padding: ms(0);
+    color: $white;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    line-height: 1;
+    text-transform: uppercase;
+    box-shadow: $shadow;
+    background-image: linear-gradient($yellow, darken($yellow, 10%));
+    //    background: $black;
+    &:hover {
+        color: $white;
+        background-image: linear-gradient($grey, darken($grey, 10%));
+    }
+    &:active,
+    &:focus {
+        @include pressed;
+    }
+    &-white {
+        @extend .btn;
+        background-image: none;
+        background-color: $white;
+        color: $black;
+        &:active,
+        &:focus {
+            color: $black;
+        }
+        &:hover {
+            color: $white;
+        }
+    }
+}

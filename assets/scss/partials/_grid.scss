@@ -1,0 +1,83 @@
+/* ---------------------------------------------- *\
+
+  Partial: grid
+
+  We're using Susy. Please visit http://susy.readthedocs.org/en/latest/install/
+
+  Due to using Susy, we're going to need the Ruby gems installed. Please a see a guide here: [TBD].
+
+  Usage
+  =====
+
+\* ---------------------------------------------- */
+
+
+/* - Index
+-------------------------------------------------
+  - Global defaults     ............................. 1.0.
+  - Grid makeup         ............................. 2.0.
+*/
+
+
+/* ---------------------------------------------- *\
+  1.0 Global defaults
+\* ---------------------------------------------- */
+
+$susy: ( flow: ltr, output: float, container: 1500px, container-position: center, columns: 12, gutters: 0.2);
+// USEAGE:
+// @include respond-to(tiny) {
+//   color: tomato;
+// }
+
+/* ---------------------------------------------- *\
+  1.0 Grid makeup
+\* ---------------------------------------------- */
+
+$max-width: 1500px;
+$grid-namespace: "contain";
+$grid-column-namespace: "g-";
+$grid-width: $max-width;
+//some defaults to breakpoint scss
+@include bkpt-set('to ems', true);
+@include bkpt-set('no query fallbacks', true);
+// set basics followed by customs 
+$BREAKPOINTS: ( tiny: 320px, 480: 480px, 640: 640px, 700: 700px, 768: 768px, 768to920: (768px 920px), 640to920: (640px 920px), 920: 920px, 920to1025: (920px 1025px), 1025: 1025px, 1025to1300: (1025px 1300px), 1200: 1200px, 1250: 1250px, 1260: 1260px, 1300: 1300px, 1350: 1350px);
+.container {
+    @include container;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+//generate our grid classes
+// @for $i from 1 through map-get($susy, columns) {
+//  .#{$grid-column-namespace}#{$i} {
+//     @include span($i of 12);
+//     @include breakpoint(map-get($breakpoints, tiny)) {
+//       @include span(full);
+//     }
+//   }
+// }
+.halfFromSmall {
+    padding: 2em 0;
+    font-size: ms(-1);
+    @include respond-to(640) {
+        padding: 0;
+        font-size: ms(0);
+        @include span(6 of 12 inside);
+    }
+}
+.third {
+    @include respond-to(920) {
+        @include span(4 of 12 inside);
+    }
+}
+.fiftyPercent {
+    @include respond-to(1025) {
+        @include span(50% inside no-gutters);
+    }
+    position: relative;
+    h1,
+    h2 {
+        margin-bottom: 0em;
+        
+    }
+}
