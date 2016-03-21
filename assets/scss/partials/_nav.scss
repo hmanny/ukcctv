@@ -8,6 +8,8 @@
 \* ---------------------------------------------- */
 
 nav {
+    display: inline-block;
+    width: 85%;
     ul {
         text-align: right;
         @include respond-to(768) {

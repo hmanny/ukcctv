@@ -1,0 +1,77 @@
+$bar_size: 2.5em;
+$thickness: 0.85;
+$bar-radius: 0px;
+$top_bar_color: $white;
+$bar_color: $white;
+$bottom_bar_color: $white;
+$thiness: 8 / $thickness;
+$bar_height: $bar_size / $thiness;
+$offset: $bar_height * (2 / $thickness);
+@mixin bar {
+    display: block;
+    width: $bar_size;
+    height: $bar_height;
+    border-radius: $bar-radius;
+}
+.menu-toggle {
+    z-index: 15;
+    display: block;
+    @include respond-to(1025) {
+        display: none;
+    }
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transition: all 0.5s;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    //    top: 50%;
+    //    left: 50%;
+    //    transform: translateY(-50%);
+    height: ($offset*2) + $bar_height;
+    width: $bar_size;
+    cursor: pointer;
+    .bars {
+        @include bar;
+        background-color: $bar-color;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -($bar_height/2);
+        transition: all .3s linear;
+        &:before,
+        &:after {
+            @include bar;
+            content: "";
+            position: absolute;
+            transition: all 0.6s ease-in-out;
+        }
+        &:before {
+            top: -$offset;
+            background-color: $top-bar-color;
+        }
+        &:after {
+            bottom: -$offset;
+            background-color: $bottom-bar-color;
+        }
+    }
+    &.active {
+        right: 2em;
+        //        transform: rotate(90deg) translateY(-50%);
+        transition-delay: 0.3s;
+        .bars {
+            transform: rotate(-45deg);
+            background-color: transparent;
+            &:before {
+                top: 0;
+                transform: rotate(-180deg);
+                background-color: $white;
+            }
+            &:after {
+                bottom: 0;
+                transform: rotate(90deg);
+                background-color: $white;
+            }
+        }
+    }
+}

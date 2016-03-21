@@ -4,6 +4,13 @@
         padding: 3em 0;
     }
 }
+.content {
+    background: #ebebeb;
+    .container {
+        @include container(1000px);
+        padding: 3em 1em;
+    }
+}
 .topLine,
 .bottomLine {
     &-center,
@@ -37,6 +44,8 @@
 }
 .banner_text {
     //    display: none;
+    //    opacity: 0;
+    //    @include animation('fade-in normal 0.5s 4s');
     @include respond-to(920) {
         @include span(7 of 12);
         text-align: left;
@@ -72,16 +81,19 @@
     }
 }
 .bullets {
-    font-size: ms(2);
+    font-size: ms(3);
     position: relative;
     left: -0.5em;
-    line-height: 2.5em;
+    line-height: 2em;
     font-family: $DIN;
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
     @include respond-to(920) {
         text-align: left;
+        padding-left: 0;
+    }
+    @include respond-to(1200) {
         padding-left: 2em;
     }
     li:before {
@@ -92,13 +104,26 @@
         color: $yellow;
     }
     @include respond-to(920) {
-        padding-top: 2em;
+        padding-top: 1.5em;
     }
 }
 .strip-why {
     text-align: center;
     @include respond-to(920) {
         text-align: left;
+    }
+    p {
+        font-size: 0.9em;
+    }
+    @include respond-to(1025) {
+        .third:first-child {
+            padding-left: percentage(1/12);
+        }
+        @include respond-to(1300) {
+            .third:last-child {
+                padding-right: percentage(1/12);
+            }
+        }
     }
     .container.paddings {
         padding-top: 0;
@@ -174,7 +199,11 @@
         }
     }
 }
-.featured {
+.featured,
+.products {
+    .pagination {
+        display: none;
+    }
     background: #ebebeb;
     padding: 0 1em;
     @include respond-to(640) {
@@ -221,6 +250,17 @@
         transition: background 0.2s;
         box-shadow: $shadow;
         background: $grey;
+        position: relative;
+        &::after {
+            content: "";
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
         &:hover {
             .product_img {
                 border: 5px solid $yellow;
@@ -232,30 +272,44 @@
             @include pressed;
         }
     }
-    .product_item {}
-    > .product_item {
+    > .product_item,
+    #ecommerceSearchItemsWrap > .ecommerceSearchItem {
         @include responsiveProducts;
         box-shadow: $shadow;
         background: $grey;
     }
-    .product_img {
+    .product_img,
+    {
         padding: 2em;
         background: $white;
         transition: border 0.2s;
         border: 5px solid transparent;
+        .product_slide,
+        .ecommerceSearchImage {
+            width: 100%;
+            padding-bottom: 67%;
+            height: 0;
+        }
     }
-    .product_info {
+    .product_info,
+    .ecommerceSearchTitle,
+    .ecommerceSearchBodyWrap {
         color: $white;
         font-family: $DIN;
         text-transform: uppercase;
         font-weight: 600;
         padding: 0.5em;
     }
+    .ecommerceSearchTitle {
+        padding-bottom: 0;
+    }
     .productId,
     .productCat,
     .productDesc,
     .ecommerceSummaryReviewsItem,
-    .product_view_btn {
+    .product_view_btn,
+    .ecommerceSearchDescription,
+    .ecommerceSearchBodyWrap a {
         display: none;
     }
     .productPrice {
@@ -358,5 +412,10 @@
             margin-right: 0.5em;
         }
         vertical-align: middle;
+    }
+}
+.previewFrame {
+    .banner {
+        height: 300px!important;
     }
 }

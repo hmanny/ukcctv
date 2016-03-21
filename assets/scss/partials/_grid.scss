@@ -41,7 +41,7 @@ $grid-width: $max-width;
 @include bkpt-set('to ems', true);
 @include bkpt-set('no query fallbacks', true);
 // set basics followed by customs 
-$BREAKPOINTS: ( tiny: 320px, 480: 480px, 640: 640px, 700: 700px, 768: 768px, 768to920: (768px 920px), 640to920: (640px 920px), 920: 920px, 920to1025: (920px 1025px), 1025: 1025px, 1025to1300: (1025px 1300px), 1200: 1200px, 1250: 1250px, 1260: 1260px, 1300: 1300px, 1350: 1350px);
+$BREAKPOINTS: ( 0to1025: (0px 1024px), tiny: 320px, 480: 480px, 640: 640px, 700: 700px, 768: 768px, 768to920: (768px 919px), 640to920: (640px 920px), 920: 920px, 920to1025: (920px 1024px), 1025: 1025px, 1025to1300: (1025px 1299px), 1100: 1100px, 1200: 1200px, 1250: 1250px, 1260: 1260px, 1300: 1300px, 1350: 1350px);
 .container {
     @include container;
     padding-left: 1em;

@@ -21,6 +21,13 @@ h6 {
 }
 .headingBlock {
     text-align: center;
+    .headingBlock_lead {
+        font-size: ms(1);
+        color: $grey;
+        font-family: $roboto;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
 }
 h1 {
     font-size: ms(6);
@@ -39,7 +46,16 @@ h3 {
     @include respond-to(920) {
         font-size: ms(7);
     }
-    ;
+}
+.content h3 {
+    text-align: center;
+    @include respond-to(920) {
+        text-align: left;
+    }
+    &:after {
+        @include line;
+    }
+    @extend .bottomLine-left;
 }
 h4 {}
 h5 {}

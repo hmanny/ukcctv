@@ -43,3 +43,12 @@
         }
     }
 }
+
+.detailProductBuyButton {
+    @extend .btn-white;
+    padding-left: 2em;
+    padding-right: 2em;
+    &:hover {
+        background: $yellow;
+    }
+}
